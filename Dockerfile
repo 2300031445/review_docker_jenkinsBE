@@ -11,8 +11,8 @@ FROM tomcat:9.0-jdk21-temurin
 # Remove default apps
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy backend WAR to Tomcat
-COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/votingback.war
+# Deploy WAR as "api" so it's served at /api/*
+COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/api.war
 
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
