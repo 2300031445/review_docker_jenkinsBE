@@ -14,5 +14,5 @@ RUN rm -rf /usr/local/tomcat/webapps/*
 # Deploy WAR as "api" so it's served at /api/*
 COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/api.war
 
-EXPOSE 8080
+EXPOSE 9090
 CMD ["catalina.sh", "run"]
